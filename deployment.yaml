@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: conductor-server
+  namespace: conductor
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: conductor-server
+    spec:
+      containers:
+      - name: conductor-server
+        image: devopsopen/docker-netflix-conductor
+        ports:
+        - containerPort: 3000
+        - containerPort: 3001
+        - containerPort: 5000
+        - containerPort: 8080
+        - containerPort: 9080
